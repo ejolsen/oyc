@@ -1,0 +1,33 @@
+.member-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    height: 430px;
+    background-color: white;
+    margin: 30px;
+    border-style: solid;
+    border-width: 2.5px;
+    border-color: rgb(29, 82, 142);
+    border-radius: 5px;
+  } 
+  
+  .member-card-img {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    width: 320px;
+    height: 320px;
+    
+  }
+  
+  .member-card-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(29, 82, 142);
+    width: 320px;
+    height: 60px;
+    font-size: 28px;
+    color:white;
+    font-family: 'Nunito Sans', sans-serif;
+  }

@@ -1,0 +1,29 @@
+.member-input-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .member-title {
+    color:black;
+    font-size: 40px;
+    padding: 10px;
+    font-family: 'Merriweather', serif;
+  }
+
+  .member-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    height: 100%;
+    margin-bottom: 40px;
+  }
+
+.members-page {
+  display: flex;
+  flex-direction: column;
+
+}
+

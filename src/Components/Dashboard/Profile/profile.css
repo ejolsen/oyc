@@ -1,0 +1,113 @@
+.profile-page {
+    height: 100%;
+    width: 100%
+}
+
+.profile-section {
+    display: flex;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    background-color: rgb(233, 235, 238);
+    width: 100%;
+    height: calc(100vh - 145px);
+    align-items: center;
+}
+
+.profile-card-1 {
+    height: 80%;
+
+}
+
+.profile-card-2 {
+    height: 588px;
+}
+
+.profile-info {
+    box-shadow: 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
+    height: 588px;
+    width: 500px;
+}
+
+.profile-info-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 92px;
+    background-color:white;
+    font-size: 32px;
+    font-family: 'Nunito Sans', sans-serif;
+    color: black
+
+}
+
+.profile-info-body {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 500px;
+    height: 424px;
+    background-color: white;
+    border-top: 2px solid  rgb(233, 235, 238);
+    border-bottom: 2px solid  rgb(233, 235, 238);
+    font-family: 'Nunito Sans', sans-serif;
+    color: black; 
+}
+
+.profile-info-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.info-title {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 28px;
+    border-bottom: 2px solid  rgb(206, 209, 214);
+    display: table;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.info-child {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 22px;
+    margin: 5px;
+    text-align: center;
+}
+
+.edit-button-box {
+    height: 76px;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-footer {
+    width: 100%;
+    height: 80px;
+    position: relative;
+    background-color: rgb(29, 82, 142);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-footer-icon {
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin: 8px;
+    fill: white;
+  }
+
+  .footer-icon {
+    padding: 15px;
+    margin-right: 5px;
+  }

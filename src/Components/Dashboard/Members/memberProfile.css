@@ -1,0 +1,77 @@
+.member-profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: rgb(233, 235, 238);
+    height: 100%;
+    padding-top: 75px;
+    padding-bottom: 85px;
+    align-content: center;
+}
+
+.contact {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 28px;
+    border-bottom: 2px solid  rgb(206, 209, 214);
+    display: table;
+    margin-bottom: 8px;
+}
+
+.contact-child {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 22px;
+    margin: 5px;
+    text-align: center;
+}
+
+.member-info {
+    box-shadow: 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
+    height: 588px;
+    width: 500px;
+}
+
+.member-info-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 96px;
+    background-color:white;
+    font-size: 32px;
+    font-family: 'Nunito Sans', sans-serif;
+    color: black
+
+}
+
+.member-info-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 500px;
+    height: 424px;
+    background-color: white;
+    color: black;
+    border-top: 1px solid  rgb(29, 82, 142);
+    border-bottom: 1px solid  rgb(29, 82, 142);
+    font-family: 'Nunito Sans', sans-serif;
+    
+}
+
+.member-info-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.member-info-footer {
+    height: 76px;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

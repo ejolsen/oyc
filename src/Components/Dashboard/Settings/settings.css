@@ -1,0 +1,39 @@
+.settings-box {
+    display: flex;
+    width: 600px;
+    background-color: white;
+    height: 500px;
+    box-shadow: 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.settings {
+    background-color: rgb(233, 235, 238);
+    height: 750px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+.settings-footer {
+    height: 90px;
+    background-color: rgb(29, 82, 142)
+}
+
+
+.settings-title{
+    font-size: 38px;
+    color: rgb(29, 82, 142);
+    margin-bottom: 20px;
+}
+
+.settings-body{
+    font-size: 24px;
+    color: rgb(29, 82, 142);
+    margin-bottom: 50px;
+}

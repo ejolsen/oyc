@@ -1,0 +1,56 @@
+.member-app {
+    background-color:rgb(233, 235, 238);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.membership-info {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    background-color: white;
+    box-shadow: 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.membership-p {
+    font-size: 22px;
+    width: 70%;
+    text-align: center;
+    color: rgb(29, 82, 142);
+    margin-bottom: 10px;
+}
+
+.membership-title{
+    font-size: 32px;
+    margin: 15px;
+    color: rgb(29, 82, 142);
+}
+
+.member-submit {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: solid blue 1px;
+    height: 300px;
+    width: 300px; 
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.membership-application-section {
+    display: flex;
+    justify-content: space-around;
+    width: 100%
+}

@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:600');
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+
+*{box-sizing: border-box}
+
+.dash-header {
+  position: relative;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  height: 65px;
+  box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.1), 0 1px 0px 0 rgba(0, 0, 0, 0.2);
+}
+
+.dash-logo-pic {
+  width: 65px;
+  height: 100%;
+}
+
+.dash-menu {
+  background-color: white;
+  display: flex;
+  justify-content: space-between
+}
+  
+/* .nav-panel {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(29, 82, 142);
+  border: black 2px;
+  width: 100%;
+  height: 14px;
+} */
+
+.dash-menu-pic {
+  margin-top: 8px;
+  margin-bottom: 4px;
+  margin-left: 8px;
+  margin-right: 28px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.dash-pic-button {
+  
+  width: 75px;
+  height: 100%;
+  background-color: white;
+  border: none
+}
+
+.dash-buttons {
+  background-color: white;
+  color:  rgb(29, 82, 142);
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Nunito Sans', sans-serif;
+  width: 130px;
+  height: 100%;
+  border: none;
+  outline: none;
+}
+.dash-buttons:hover {
+  color: rgb(209, 4, 4)
+}
+
+
+.dash-button-chat {
+  background-color: white;
+  color:  rgb(29, 82, 142);
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Nunito Sans', sans-serif;
+  width: 90px;
+  height: 100%;
+  border: none;
+  outline: none;
+}
+.dash-button-chat:hover {
+  color: rgb(209, 4, 4)
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  z-index: 1;
+  position: fixed;
+}
+  
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 18px;
+}
+  
+.dropdown-content a:hover {
+ color: rgb(209, 4, 4)
+}
+  
+.dropdown:hover .dropdown-content {
+  display: block;
+  right: 0px;
+}
+ 
+.dropdown:hover .dropbtn {
+  color: rgb(209, 4, 4)
+}
