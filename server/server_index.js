@@ -132,8 +132,8 @@ passport.deserializeUser((id, done) => {
 app.get('/api/user_session', ctrl.checkUserSession);
 app.get('/auth', passport.authenticate('auth0'));
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3000/#/profile',
-    failureRedirect: 'http://localhost:3000'
+    successRedirect: `${process.env.FRONTEND_DOMAIN}/#/profile`,
+    failureRedirect: `${process.env.FRONTEND_DOMAIN}`
 }));
 app.get('/auth/me', function(req,res) {
     if(req.user) {
@@ -158,7 +158,7 @@ app.post('/api/post/docs', ctrl.post_document);
 app.put('/api/edit_profile/:id', ctrl.edit_profile);
 app.get('/auth/logout', (req, res) => {
     req.logOut();
-    res.redirect('http://localhost:3000/');
+    res.redirect(`${process.env.FRONTEND_DOMAIN}`);
 });
 app.delete('/api/delete_user', ctrl.delete_user);
 

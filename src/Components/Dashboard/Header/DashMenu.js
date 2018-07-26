@@ -11,8 +11,7 @@ import {getUserInfo} from '../../../redux/reducer';
 
 class DashMenu extends Component {
     constructor() {
-        super();
-        
+        super();     
         this.state = {
             open: false,
         }
@@ -112,7 +111,7 @@ class DashMenu extends Component {
                     <img className='dash-menu-pic 'alt='profile_img' src={this.props.user.img}/>
                     <div className="dropdown-content">
                         <Link to='/settings'>Account Settings</Link>
-                        <a href='http://localhost:7000/auth/logout'>Log Out</a>
+                        <a href={`${window.origin}/auth/logout`}>Log Out</a>
                     </div>
                 </div>
             </div>

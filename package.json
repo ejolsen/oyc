@@ -35,5 +35,12 @@
     "eject": "react-scripts eject"
   },
   "main": "server/server_index.js",
-  "proxy": "http://localhost:7000"
+  "proxy": {
+    "/api":{
+      "target": "http://localhost:7000"
+    },
+    "/auth": {
+      "target": "http://localhost:7000"
+    }
+  }
 }

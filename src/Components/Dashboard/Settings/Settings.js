@@ -46,7 +46,7 @@ class Settings extends Component {
                 style={{marginLeft: 50}}
                 label="DELETE ACCOUNT"
                 primary={true}
-                href='http://localhost:7000/auth/logout'
+                href={`${window.location}/auth/logout`}
             />,
             <FlatButton
         backgroundColor="rgb(29, 82, 142)"
