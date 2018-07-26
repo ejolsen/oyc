@@ -1,7 +1,7 @@
 .member-app {
     background-color:rgb(233, 235, 238);
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,38 +9,66 @@
 }
 
 .membership-info {
-    margin-top: 50px;
+    margin-top: 25px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    width: 80%;
+    width: 85%;
+    height: 92%;
     background-color: white;
     box-shadow: 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    overflow: scroll;
 }
 
 .membership-p {
-    font-size: 22px;
-    width: 70%;
-    text-align: center;
+    font-size: 24px;
+    width: 80%;
     color: rgb(29, 82, 142);
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+    margin-top: 15px;
+    letter-spacing: 0.8px;
 }
 
 .membership-title{
     font-size: 32px;
-    margin: 15px;
+    margin-top: 30px;
+    margin-bottom: 20px;
     color: rgb(29, 82, 142);
 }
 
 .member-submit {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     margin-top: 20px;
     margin-bottom: 10px;
-    border: solid blue 1px;
-    height: 300px;
-    width: 300px; 
+    height: 520px;
+    width: 500px; 
+}
+
+.member-submit-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.member-submit-apply {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-top: solid black 1px;
+    height: 130px;
+    width: 60%
+}
+
+.online-app-title {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 26px;
 }
 
 .modal-form {
@@ -51,6 +79,6 @@
 
 .membership-application-section {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 100%
 }

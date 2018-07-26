@@ -1,13 +1,36 @@
 module.exports = {
 
     submit_application: (req, res, next) => {
-        const  {first_name, last_name, email, city, us_state, zip_code, boat_name, boat_type, date} = req.body
-        req.app.get('db').submit_application([first_name, last_name, email, city, us_state, zip_code, boat_name, boat_type, date])
+        const {first_name, last_name, email, phone, city, us_state, zip_code, boat_name, boat_type, date, application_status, member_type} = req.body
+        req.app.get('db').submit_application([first_name, last_name, email, city, us_state, zip_code, boat_name, boat_type, date, phone, application_status, member_type])
         .then( () => { 
             res.status(200).send('Application Submitted') 
             console.log('New Application Submission', req.body)
-        }) 
+        })
         .catch(err => console.log('ERROR: Update Failed'));
+    },
+
+    get_all_docs: ( req, res, next ) => {
+        req.app.get('db').get_all_docs()
+          .then(docs => { res.status(200).send(docs) 
+        });    
+    },
+
+    get_all_applications: ( req, res, next ) => {
+        req.app.get('db').get_all_apps()
+          .then(apps => { res.status(200).send(apps) 
+        });    
+    },
+
+    post_document: (req, res, next) => {
+        console.log(req.body)
+        const {fileName, fileType, fileURL, fileIMG} = req.body
+        req.app.get('db').post_document([fileName, fileType, fileURL, fileIMG])
+        .then( () => { 
+            res.status(200).send() 
+            console.log('New Document Posted', req.body)
+        })
+        .catch(err => console.log(err, 'ERROR: Post Failed'));
     },
 
     get_user_profile_info: (req, res, next) => {
@@ -15,6 +38,11 @@ module.exports = {
         req.app.get('db').get_user_profile_info([id])
           .then(profile_info => { res.status(200).send(profile_info[0]) 
         }); 
+    },
+
+    checkUserSession: (req, res) => {
+        res.status(200).send(req.session);
+        console.log(req.session)
     },
 
     get_all_users: ( req, res, next ) => {
@@ -91,9 +119,15 @@ module.exports = {
     
     delete_user: (req, res, next) => {
         const {id} = req.params;
-        
         req.app.get('db').delete_user([id])
         .then( () => res.status(200).send('User deleted.')
+        .catch(() => res.status(500).send()));
+    },
+
+    delete_doc: (req, res, next) => {
+        const {id} = req.params;
+        req.app.get('db').delete_doc([id])
+        .then( () => res.status(200).send('Doc deleted.')
         .catch(() => res.status(500).send()));
     }
 

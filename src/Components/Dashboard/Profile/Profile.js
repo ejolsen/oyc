@@ -1,25 +1,15 @@
 import './profile.css';
 import React, { Component } from 'react';
 import axios from 'axios';
-import NavPanel from '../Header/NavPanel';
 import DashHeader from '../Header/DashHeader';
 import ProfileFooter from './ProfileFooter';
-import StateSelect from './StateSelect';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import {getUser, getUserInfo} from '../../../redux/reducer';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardHeader, CardMedia, CardTitle} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import Paper from 'material-ui/Paper';
-import SvgIcon from 'material-ui/SvgIcon';
-import Dialog, {
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-} from 'material-ui/Dialog';
-
+import Dialog from 'material-ui/Dialog';
 
 class Profile extends Component {
   constructor(){
@@ -40,20 +30,24 @@ class Profile extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   };
 
-  componentDidMount(){
-    this.props.getUser();
-    this.props.getUserInfo().then(res => {
-      this.setState({
-        status: res.value.user_status,
-        email: res.value.email,
-        phone: res.value.phone,
-        city: res.value.city,
-        us_state: res.value.us_state,
-        boat_info: res.value.boat_info,
-        about_me: res.value.about_me,
-        club_position: res.value.club_position
-      });
-    });
+  componentDidMount() {
+    axios.get('/api/user_session').then(res =>
+      res.data.passport ?
+        this.props.getUser() &&
+        this.props.getUserInfo().then(res => {
+          this.setState({
+            status: res.value.user_status,
+            email: res.value.email,
+            phone: res.value.phone,
+            city: res.value.city,
+            us_state: res.value.us_state,
+            boat_info: res.value.boat_info,
+            about_me: res.value.about_me,
+            club_position: res.value.club_position
+          });
+        })
+      : this.props.history.push("/")
+    );
   };
 
   handleOpen = () => {
@@ -131,97 +125,84 @@ class Profile extends Component {
 
     return (
       <div> 
-        {
-          this.props.user.display_name ?
-            (
-              <div className='profile-page'>
-                <DashHeader/>
-                <div className='profile-section'>
-                  <div className='profile-card-1'>
-                    <Card style={styles.card}>
-                      <CardHeader  
-                        titleStyle = {mediaTitleStyles.title}
-                        subtitleStyle={mediaTitleStyles.subtitle}  
-                        title={this.props.user.display_name} subtitle={this.state.club_position}/>
-                      <CardMedia 
-                        overlay={
-                          <CardTitle 
-                            titleStyle = {mediaTitleStyles.bottomtitle} 
-                            title={`${this.props.user_info.city}, 
-                            ${this.props.user_info.us_state}`}
-                          />
-                        } 
-                      >
-                        <img src={this.props.user.img} width='500px' height= '500px' alt="profile pic" />
-                      </CardMedia>
-                    </Card>
+          <div className='profile-page'>
+            <DashHeader component_title='PROFILE'/>
+            <div className='profile-section'>
+              <div className='profile-card-1'>
+                <Card style={styles.card}>
+                  <CardHeader  
+                    titleStyle = {mediaTitleStyles.title}
+                    subtitleStyle={mediaTitleStyles.subtitle}  
+                    title={this.props.user.display_name} subtitle={this.state.club_position}/>
+                  <CardMedia 
+                    overlay={
+                      <CardTitle 
+                        titleStyle = {mediaTitleStyles.bottomtitle} 
+                        title={`${this.props.user_info.city}, 
+                        ${this.props.user_info.us_state}`}
+                      />
+                    } 
+                  >
+                    <img src={this.props.user.img} width='500px' height= '500px' alt="profile pic" />
+                  </CardMedia>
+                </Card>
+              </div>
+                                
+              <div className='profile-card-2'>
+                <div className='profile-info'>
+                  <div className='profile-info-header'>
+                    {this.props.user_info.user_status}
                   </div>
-                                   
-                  {/* <div className='profile-card-2'>
-                    <div className='profile-info'>
-                      <div className='profile-info-header'>
-                        {this.props.user_info.user_status}
-                      </div>
 
-                      <div className='profile-info-body'>
-                        <div className='profile-info-section'>
-                          <div className='info-title'>About</div>
-                          <div className='info-child'>{this.props.user_info.about_me}</div>
-                        </div>
+                  <div className='profile-info-body'>
+                    <div className='profile-info-section'>
+                      <div className='info-title'>About</div>
+                      <div className='info-child'>{this.props.user_info.about_me}</div>
+                    </div>
 
-                        <div className='profile-info-section'>
-                          <div className='info-title'>Boat Info</div>
-                          <div className='info-child'>{this.props.user_info.boat_info}</div>
-                        </div>
-                        
-                        <div className='profile-info-section'>
-                          <div className='info-title'>Contact</div>
-                          <div className='info-child'>{this.props.user_info.email}</div>
-                          <div className='info-child'>{this.props.user_info.phone}</div>
-                        </div>
+                    <div className='profile-info-section'>
+                      <div className='info-title'>Boat Info</div>
+                      <div className='info-child'>{this.props.user_info.boat_info}</div>
+                    </div>
+                    
+                    <div className='profile-info-section'>
+                      <div className='info-title'>Contact</div>
+                      <div className='info-child'>{this.props.user_info.email}</div>
+                      <div className='info-child'>{this.props.user_info.phone}</div>
+                    </div>
 
-                        <div className='profile-info-section'>
-                          <div className='info-title'>Club Position</div>
-                          <div className='info-child'>{this.props.user_info.club_position}</div>
-                        </div>
-                      </div>
+                    <div className='profile-info-section'>
+                      <div className='info-title'>Club Position</div>
+                      <div className='info-child'>{this.props.user_info.club_position}</div>
+                    </div>
+                  </div>
 
-                      <div className='edit-button-box'>
-                        <RaisedButton backgroundColor="rgb(29, 82, 142)" labelColor="white" label="Edit Profile" onClick={this.handleOpen} />
-                        <Dialog
-                          title="Edit Profile Info"
-                          actions={actions}
-                          modal={true}
-                          open={this.state.open}
-                        >
-                          <form className='modal-form'>
-                            <TextField onChange={this.handleChange } defaultValue={this.state.status} floatingLabelText="Status" name='status'/>
-                            <TextField onChange={this.handleChange } defaultValue={this.state.email} floatingLabelText="Email" name='email'/>
-                            <TextField onChange={this.handleChange } defaultValue={this.state.phone} floatingLabelText="Phone Number" name='phone'/>
-                            <TextField onChange={this.handleChange } defaultValue={this.state.city} floatingLabelText="City" name='city'/>
-                            <TextField onChange={this.handleChange } defaultValue={this.state.us_state} floatingLabelText="State" name='us_state' maxLength='2'/>
-                            <TextField onChange={this.handleChange } defaultValue={this.state.boat_info} floatingLabelText="Boat Info" name='boat_info' />
-                            <TextField onChange={this.handleChange } multiLine='true' rows='10' defaultValue={this.state.about_me} floatingLabelText="Write something about yourself" name='about_me' />
-                            <TextField onChange={this.handleChange } defaultValue={this.state.club_position} floatingLabelText="Club Position" name='club_position' />
+                  <div className='edit-button-box'>
+                    <RaisedButton backgroundColor="rgb(29, 82, 142)" labelColor="white" label="Edit Profile" onClick={this.handleOpen} />
+                    <Dialog
+                      title="Edit Profile Info"
+                      actions={actions}
+                      modal={true}
+                      open={this.state.open}
+                    >
+                      <form className='modal-form'>
+                        <TextField onChange={this.handleChange } defaultValue={this.state.status} floatingLabelText="Status" name='status'/>
+                        <TextField onChange={this.handleChange } defaultValue={this.state.email} floatingLabelText="Email" name='email'/>
+                        <TextField onChange={this.handleChange } defaultValue={this.state.phone} floatingLabelText="Phone Number" name='phone'/>
+                        <TextField onChange={this.handleChange } defaultValue={this.state.city} floatingLabelText="City" name='city'/>
+                        <TextField onChange={this.handleChange } defaultValue={this.state.us_state} floatingLabelText="State" name='us_state' maxLength='2'/>
+                        <TextField onChange={this.handleChange } defaultValue={this.state.boat_info} floatingLabelText="Boat Info" name='boat_info' />
+                        <TextField onChange={this.handleChange } multiLine='true' rows='10' defaultValue={this.state.about_me} floatingLabelText="Write something about yourself" name='about_me' />
+                        <TextField onChange={this.handleChange } defaultValue={this.state.club_position} floatingLabelText="Club Position" name='club_position' />
 
-                          </form>
-                        </Dialog>    
-                      </div>      
-                    </div>                                
-                  </div>    */}
-                </div>
-                <ProfileFooter/>
-              </div>
-            ) : 
-            <div>
-              <p>You must be logged in to access your profile.</p>
-              <div>
-                <a href={process.env.REACT_APP_LOGIN}
-                  ><button>Login</button>
-                </a>
-              </div>
+                      </form>
+                    </Dialog>    
+                  </div>      
+                </div>                                
+              </div>   
             </div>
-        }
+            <ProfileFooter/>
+          </div>
       </div>
     )
   }
@@ -235,5 +216,3 @@ function mapStateToProps(state) {
 };
 
 export default connect(mapStateToProps, {getUser, getUserInfo})(Profile)
-
-

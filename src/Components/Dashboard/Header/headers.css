@@ -1,20 +1,64 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:600');
 @import url('https://fonts.googleapis.com/css?family=Merriweather');
+@import url('https://fonts.googleapis.com/css?family=Roboto:700');
 
-*{box-sizing: border-box}
+* {box-sizing: border-box}
+
+a {text-decoration: none}
 
 .dash-header {
   position: relative;
   background-color: white;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 65px;
   box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.1), 0 1px 0px 0 rgba(0, 0, 0, 0.2);
 }
 
 .dash-logo-pic {
-  width: 65px;
+  width: 70px;
+  height: 65px;
+}
+
+.component-title {
+  font-size: 32px;
+  color: rgb(29, 82, 142);
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+  width: 100%;
+  background-color: rgb(199, 2, 2);
+  box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.1), 0 1px 0px 0 rgba(0, 0, 0, 0.2);
+}
+
+.admin-nav {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 18px;
+}
+
+.admin-nav-link  {
+  font-family: 'Nunito Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: black;
+  height: 30px;
+  width: 130px;
+  font-size: 15px;
 }
 
 .dash-menu {
@@ -22,25 +66,15 @@
   display: flex;
   justify-content: space-between
 }
-  
-/* .nav-panel {
-  display: flex;
-  justify-content: center;
-  background-color: rgb(29, 82, 142);
-  border: black 2px;
-  width: 100%;
-  height: 14px;
-} */
 
 .dash-menu-pic {
   margin-top: 8px;
   margin-bottom: 4px;
-  margin-left: 8px;
-  margin-right: 28px;
-  width: 46px;
-  height: 46px;
+  margin-right: 30px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .dash-pic-button {
@@ -61,25 +95,23 @@
   height: 100%;
   border: none;
   outline: none;
+  cursor: pointer;
 }
 .dash-buttons:hover {
-  color: rgb(209, 4, 4)
+  color:  rgb(199, 2, 2);
 }
 
-
-.dash-button-chat {
+.dash-buttons-on {
   background-color: white;
-  color:  rgb(29, 82, 142);
+  color:  rgb(199, 2, 2);
   text-align: center;
   font-size: 18px;
   font-family: 'Nunito Sans', sans-serif;
-  width: 90px;
+  width: 130px;
   height: 100%;
   border: none;
   outline: none;
-}
-.dash-button-chat:hover {
-  color: rgb(209, 4, 4)
+  cursor: pointer;
 }
 
 .dropdown-content {

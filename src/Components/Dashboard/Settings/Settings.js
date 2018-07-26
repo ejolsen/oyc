@@ -2,9 +2,9 @@ import './settings.css';
 import React, {Component} from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
-import NavPanel from '../Header/NavPanel';
 import DashHeader from '../Header/DashHeader';
 import Dialog from 'material-ui/Dialog';
+import axios from 'axios';
 
 class Settings extends Component {
     constructor(){
@@ -14,6 +14,14 @@ class Settings extends Component {
             open: false,
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+    };
+
+    componentDidMount() {
+        axios.get('/api/user_session').then(res =>
+          res.data.passport ?
+            console.log('User Verified: Access Granted')
+          : this.props.history.push("/")
+        );
     };
 
     handleOpen = () => {
@@ -55,7 +63,6 @@ class Settings extends Component {
         <div>
 
                 <DashHeader/>
-                <NavPanel/>
             <div className='settings'>
                 
 

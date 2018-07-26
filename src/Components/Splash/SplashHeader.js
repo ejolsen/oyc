@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import headerLogo from '../../images/oyc_logo_red.svg';
 import LoginButton from './LoginButton';
 
 
-class Splash_Header extends Component {
+class SplashHeader extends Component {
   constructor() {
     super();
 
@@ -20,22 +20,36 @@ class Splash_Header extends Component {
                     <img src={headerLogo} className='splash-logo' alt="club logo" />
                 </Link>
             </div>
+
+            <div className='header-title'>{this.props.component_title}</div>
             
+
             <div className='splash-links'>
-                <div className="adropdown">
-                    <button className="adropbtn">Our Club</button>
-                    <div className="adropdown-content">
-                        <Link to='/about'>About Us</Link>
-                        <a href="#">Rules and Guidelines</a>
-                        <a href="#">Contact</a>
-                    </div>
-                </div>
+                <Link to='/about'>
+                    {this.props.component_title === 'CLUB INFO' ? 
+                    <button className='splash-header-button-on'>Our Club</button> : 
+                    null}
+                    {this.props.component_title === 'CLUB INFO' ? 
+                    null : 
+                    <button className='splash-header-button'>Our Club</button>}
+                </Link>
 
                 <Link to='/membership'>
-                    <button className='splash-header-button'>Membership</button>
+                    {this.props.component_title === 'MEMBERSHIP' ? 
+                    <button className='splash-header-button-on'>Membership</button> : 
+                    null}
+                    {this.props.component_title === 'MEMBERSHIP' ? 
+                    null : 
+                    <button className='splash-header-button'>Membership</button>}
                 </Link>
-                <Link to='/calendar'>
-                    <button className='splash-header-button'>Calendar</button>
+
+                <Link to='/events'>
+                    {this.props.component_title === 'CALENDAR' ? 
+                    <button className='splash-header-button-on'>Calendar</button> : 
+                    null}
+                    {this.props.component_title === 'CALENDAR' ? 
+                    null : 
+                    <button className='splash-header-button'>Calendar</button>}
                 </Link>
                 
                 <LoginButton/>
@@ -46,4 +60,4 @@ class Splash_Header extends Component {
 
 };
   
-export default Splash_Header
+export default SplashHeader

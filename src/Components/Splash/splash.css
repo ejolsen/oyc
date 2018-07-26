@@ -16,6 +16,7 @@
   background-color: white;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   height: 80px;
   position: fixed;
@@ -41,7 +42,15 @@
   
 .splash-logo {
   width: 80px;
-  height: 100%;
+  height: 80px;
+  margin-top: 3px;
+}
+
+.header-title {
+  font-size: 36px;
+  color: rgb(29, 82, 142);
+  font-weight: 600;
+  letter-spacing: 2px;
 }
 
 .adropbtn {
@@ -103,6 +112,18 @@
 .splash-header-button:hover {
   color:rgb(209, 4, 4)
 }
+
+.splash-header-button-on {
+  background-color: white;
+  color:  rgb(209, 4, 4);
+  text-align: center;
+  font-size: 24px;
+  font-family: 'Nunito Sans', sans-serif;
+  width: 150px;
+  height: 100%;
+  border: none;
+  outline: none;
+}
   
 .login-button {
   background-color: rgb(29, 82, 142);
@@ -111,8 +132,9 @@
   font-size: 22px;
   font-family: 'Nunito Sans', sans-serif;
   width: 150px;
-  height: 100%;
-  border: none
+  height: 80px;
+  border: none;
+  outline: none
 }
 .login-button:hover {
   background-color:  rgb(145, 3, 3)
@@ -361,12 +383,7 @@ div.title-bar-2 {
   height: 100px;
   background-color: rgb(29, 82, 142);
   display: flex;
-  justify-content: space-between;
-}
-
-.icon {
-  padding-left: 12px;
-  padding-right: 12px;
+  justify-content: center;
 }
 
 .splash-footer-icon {
@@ -378,12 +395,25 @@ div.title-bar-2 {
 }
 
 
+.icon {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+
+
 .footer-info {
+  text-align: center;
   display: flex;
   justify-content: space-between;
   color: white;
   padding-top: 10px;
   letter-spacing: 3px;
+}
+@media screen and (max-width: 420px) {
+  div.footer-info {
+    font-size: 8px
+  }
 }
 
 .footer-copy {
@@ -391,4 +421,64 @@ div.title-bar-2 {
   justify-content: center;
   color: white;
   padding-top: 10px;
+}
+@media screen and (max-width: 420px) {
+  div.footer-copy {
+    font-size: 8px
+  }
+}
+
+
+
+
+
+.about-body {
+  background-color:rgb(233, 235, 238);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.about-main-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 70%;
+  height: 100%;
+  background-color: white;
+  box-shadow: 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
+  overflow: scroll;
+}
+
+.splash-calendar-body {
+  background-color:rgb(233, 235, 238);
+  width: 100%;
+  height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash-calendar-main-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-top: -40px;
+  background-color: white;
+  box-shadow: 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
+}
+
+.splash-events {
+  height: 600px;
+  width: 45%;
+  border: 1px black solid
 }

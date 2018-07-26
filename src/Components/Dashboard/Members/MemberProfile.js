@@ -1,21 +1,15 @@
 import './memberProfile.css';
 import React, { Component } from 'react';
 import axios from 'axios';
-import NavPanel from '../Header/NavPanel';
 import DashHeader from '../Header/DashHeader';
 import ProfileFooter from '../Profile/ProfileFooter';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
-import Paper from 'material-ui/Paper';
+import {Card, CardHeader, CardMedia, CardTitle} from 'material-ui/Card';
 import Dialog, {
   DialogActions,
   DialogContent,
   DialogContentText,
   DialogTitle,
 } from 'material-ui/Dialog';
-
 
 class MemberProfile extends Component {
     constructor() {
@@ -27,7 +21,15 @@ class MemberProfile extends Component {
         } 
     };
 
-    componentDidMount(){
+    componentDidMount() {
+        axios.get('/api/user_session').then(res =>
+          res.data.passport ?
+            this.getMemberInfo()
+          : this.props.history.push("/")
+        );
+    };
+
+    getMemberInfo() {
         axios.get('/api/member_profile/' + this.props.match.params.id).then( res => {
             this.setState({
                 user_info: res.data
@@ -38,7 +40,7 @@ class MemberProfile extends Component {
                 member_profile: res.data
             })
         });
-    }
+    };
 
     render(){
         let render_member_name = this.state.user_info.display_name
@@ -78,8 +80,7 @@ class MemberProfile extends Component {
         return (
         
             <div>
-                <DashHeader/>
-                <NavPanel/>
+                <DashHeader component_title={`${render_member_name}'s Profile`}/>
 
                 <div className='member-profile'>
 

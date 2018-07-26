@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import Popover, {PopoverAnimationVertical} from 'material-ui/Popover';
 import IconButton from 'material-ui/IconButton';
 import SvgIcon from 'material-ui/SvgIcon';
 import Weather from '../../Weather/Weather';
 import Paper from 'material-ui/Paper';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import {getUser} from '../../../redux/reducer';
 import {getUserInfo} from '../../../redux/reducer';
-
 
 class DashMenu extends Component {
     constructor() {
@@ -19,7 +18,7 @@ class DashMenu extends Component {
         }
     };
 
-    componentDidMount(){
+    componentDidMount() {
         this.props.getUser();
     };
 
@@ -36,7 +35,6 @@ class DashMenu extends Component {
           open: false,
         });
     };
-    
 
     render() {
         const styles = {
@@ -48,7 +46,6 @@ class DashMenu extends Component {
 
         return (
             <div  className='dash-menu'>
-
                 <div>              
                     <IconButton  onClick={this.handleClick} 
                         iconStyle={{
@@ -92,10 +89,23 @@ class DashMenu extends Component {
                 </div>
                            
                 <div>
-                    <Link to='/profile'><button className='dash-buttons'>My Profile</button></Link>
-                    <Link to='/members'><button className='dash-buttons'>Members</button></Link>
-                    <Link to='/calendar'><button className='dash-buttons'>Calendar</button></Link>
-                    <Link to='/members'><button className='dash-buttons'>Club Docs</button></Link>
+                    <Link to='/profile'>
+                        {this.props.component_title === 'PROFILE' ? <button className='dash-buttons-on'>My Profile</button> : null} 
+                        {this.props.component_title === 'PROFILE' ? null : <button className='dash-buttons'>My Profile</button>} 
+                    </Link>
+
+                    <Link to='/members'>
+                        {this.props.component_title === 'CLUB MEMBERS' ? <button className='dash-buttons-on'>Members</button> : null} 
+                        {this.props.component_title === 'CLUB MEMBERS' ? null : <button className='dash-buttons'>Members</button>} 
+                    </Link>
+                    <Link to='/calendar'>
+                        {this.props.component_title === 'CALENDAR' ? <button className='dash-buttons-on'>Calendar</button> : null} 
+                        {this.props.component_title === 'CALENDAR' ? null : <button className='dash-buttons'>Calendar</button>} 
+                    </Link>
+                    <Link to='/members'>
+                        {this.props.component_title === 'CLUB INFO' ? <button className='dash-buttons-on'>Club Info</button> : null} 
+                        {this.props.component_title === 'CLUB INFO' ? null : <button className='dash-buttons'>Club Info</button>} 
+                    </Link>
                 </div> 
 
                 <div className="dropdown">
@@ -105,7 +115,6 @@ class DashMenu extends Component {
                         <a href='http://localhost:7000/auth/logout'>Log Out</a>
                     </div>
                 </div>
-
             </div>
         );
     };

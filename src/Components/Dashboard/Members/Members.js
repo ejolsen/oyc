@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import NavPanel from '../Header/NavPanel';
 import DashHeader from '../Header/DashHeader';
 import MemberCard from './MemberCard';
 import ProfileFooter from '../Profile/ProfileFooter';
@@ -19,13 +18,21 @@ class Members extends Component {
   };
 
   componentDidMount() {
+    axios.get('/api/user_session').then(res =>
+      res.data.passport ?
+        this.getMembers()
+      : this.props.history.push("/")
+    );
+};
+
+  getMembers() {
     axios.get( '/api/member_list' )
     .then( res => {
       this.setState({
         users: res.data
       })
     })
-  };
+  }
 
   handleChange(userSearch){
     this.setState({
@@ -48,14 +55,12 @@ class Members extends Component {
 
     return (
       <div>
-        <DashHeader/>
-          <NavPanel/>
+        <DashHeader component_title='CLUB MEMBERS'/>
         <div className='members-page'>
 
           
 
           <div className='member-input-title'>
-            <div className='member-title'>Club Members</div>
             <input className='member-input' placeholder='Search Members' onChange={ (e) => this.handleChange(e.target.value) } type="text"/>
           </div>
               
