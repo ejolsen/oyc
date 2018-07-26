@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 const app = express();
+app.use(express.static(__dirname+'/../build'))
 const {
   SERVER_PORT,
   SESSION_SECRET,
