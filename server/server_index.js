@@ -147,7 +147,7 @@ app.get('/auth/me', function(req,res) {
 });
 app.get('/auth/logout', (req, res) => { 
     req.logOut();
-    res.redirect(`${process.env.FRONTEND_DOMAIN}`);
+    res.redirect(`/${process.env.FRONTEND_DOMAIN}`);
 });
 
 // ___ENDPOINTS______________________________________________________
