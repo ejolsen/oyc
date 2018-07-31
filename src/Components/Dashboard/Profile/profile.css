@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:600');
+@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+
 .profile-page {
     height: 100%;
     width: 100%
@@ -6,20 +9,217 @@
 .profile-section {
     display: flex;
     justify-content: center;
-    /* flex-wrap: wrap; */
     background-color: rgb(233, 235, 238);
     width: 100%;
-    height: calc(100vh - 145px);
+    height: calc(100vh - 65px);
     align-items: center;
 }
 
-.profile-card-1 {
+.profile-card-section {
+    display: flex;
+    justify-content: space-between;
     height: 80%;
-
+    width: 80%;
 }
 
-.profile-card-2 {
-    height: 588px;
+.profile-card-left-section {
+    height: 100%;
+    width: 31%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile-card-info {
+    width: 67%;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
+    display: flex;
+    flex-direction: column;
+}
+
+.status-bar {
+    width: 100%;
+    height: 10%;
+    border-bottom: black solid 1px;
+    background-color: rgb(29, 82, 142);
+    color: white;
+}
+
+.status-title {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 5%;
+    font-size: 26px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.pro-info {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 25px;
+}
+
+.pro-info-top {
+    width: 100%;
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+}
+
+.pro-info-bottom {
+    width: 100%;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+.pro-info-title {
+    margin-left: 5%;
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.pro-info-info {
+    margin-left: 5%;
+    font-size: 18px;
+    margin-bottom: 20px;
+    width: 35%;
+    font-family: 'Nunito Sans', sans-serif;
+    border-bottom: gray solid 1px;
+}
+
+.pro-info-info-about {
+    margin-left: 5%;
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding: 10px;
+    width: 80%;
+    height: 100%;
+    font-family: 'Nunito Sans', sans-serif;
+    border: solid 1px rgb(29, 82, 142);
+}
+
+.pro-settings {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.profile-edit-button {
+    background-color: black;
+    color: white;
+    width: 150px;
+    height: 40px;
+    font-size: 17px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.profile-account-button {
+    background-color: rgb(209, 4, 4);
+    color: white;
+    width: 155px;
+    height: 40px;
+    font-size: 17px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.profile-card-pic-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 73%;
+    background-color: white;
+    box-shadow: 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
+}
+
+.pic-edit-icon {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    margin-left: 43%;
+}
+
+.profile-card-pic {
+    width: 100%;
+    height: 87%;
+}
+
+.profile-card-pic-title {
+    height: 13%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 5%;
+    font-size: 28px;
+    background-color: rgb(29, 82, 142);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.profile-card-pic-position {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 5%;
+    margin-top: -50px;
+    color: white;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.719);
+    font-size: 22px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.profile-card-contact {
+    width: 100%;
+    height: 25%;
+    background-color: white;
+    box-shadow: 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: flex-start;
+    padding-left: 20px;
+    padding-top: 15px;
+}
+
+.profile-card-contact-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 26px;
+    margin-bottom: 20px;
+    border-bottom: gray solid 1px;
+    width: 80%;
+}
+
+.profile-card-contact-info {
+    font-size: 20px;
+    font-family: 'Nunito Sans', sans-serif;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+.profile-card-1 {
+    height: 80%;
 }
 
 .profile-info {
@@ -107,7 +307,15 @@
     fill: white;
   }
 
-  .footer-icon {
-    padding: 15px;
-    margin-right: 5px;
-  }
+.footer-icon {
+padding: 15px;
+margin-right: 5px;
+}
+
+
+/* 
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */

@@ -33,10 +33,28 @@ module.exports = {
         .catch(err => console.log(err, 'ERROR: Post Failed'));
     },
 
+    post_picture: (req, res, next) => {
+        const {pictureURL} = req.body
+        const user_id = req.params.id
+        req.app.get('db').post_picture([pictureURL, user_id])
+        .then( () => { 
+            res.status(200).send() 
+            console.log('New Profile Picture Uploaded', req.body)
+        })
+        .catch(err => console.log(err, 'ERROR: Post Failed'));
+    },
+
     get_user_profile_info: (req, res, next) => {
         const {id} = req.user;
         req.app.get('db').get_user_profile_info([id])
           .then(profile_info => { res.status(200).send(profile_info[0]) 
+        }); 
+    },
+
+    get_user_photo: (req, res, next) => {
+        const user_id = req.params.id
+        req.app.get('db').get_user_photo([user_id])
+          .then(profile_photo => { res.status(200).send(profile_photo) 
         }); 
     },
 
@@ -100,7 +118,10 @@ module.exports = {
             us_state, 
             boat_info, 
             about_me,
-            club_position
+            club_position,
+            boat_type,
+            boat_length,
+            boat_name
         } = req.body;
         const {id} = req.params; 
         req.app.get('db').edit_profile([
@@ -112,7 +133,10 @@ module.exports = {
             us_state, 
             boat_info, 
             about_me,
-            club_position
+            club_position,
+            boat_type,
+            boat_length,
+            boat_name
         ])
         .then( () => res.status(200).send() )
     },
@@ -129,6 +153,21 @@ module.exports = {
         req.app.get('db').delete_doc([id])
         .then( () => res.status(200).send('Doc deleted.')
         .catch(() => res.status(500).send()));
-    }
+    },
 
+    update_payment: (req, res, next) => { 
+        const {id} = req.params;  
+        const boolval = true  
+        console.log(id, boolval) 
+        req.app.get('db').update_payment([id, boolval])
+        .then( () => res.status(200).send() )
+    },
+
+    update_app_status: (req, res, next) => { 
+        const {id} = req.params;  
+        const newStatus = 'approved'
+        console.log(id, newStatus)
+        req.app.get('db').update_app_status([id, newStatus])
+        .then( () => res.status(200).send() )
+    },
 };

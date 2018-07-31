@@ -45,7 +45,7 @@ class DashMenu extends Component {
 
         return (
             <div  className='dash-menu'>
-                <div>              
+                {/* <div>              
                     <IconButton  onClick={this.handleClick} 
                         iconStyle={{
                             width: '40px',
@@ -85,7 +85,7 @@ class DashMenu extends Component {
                             <Weather/>
                         </Paper>
                     </Popover>
-                </div>
+                </div> */}
                            
                 <div>
                     <Link to='/profile'>

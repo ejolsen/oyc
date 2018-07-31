@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+
+
+.weather-container {
+    height: 100%;
+    width: 120px;
+}
+
+.weather-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    width: 120px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.weather-top {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 45%;
+    width: 100%;
+}
+
+.weather-icons {
+    margin-right: 10%;
+    margin-top: -2%
+}
+
+.weather-bottom {
+    height: 55%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.high-low {
+    display: flex;
+    justify-content: flex-start;
+    letter-spacing: 1px;
+    margin-left: 2%;
+    margin-top: -5px;
+
+}
+
+.wx-high {
+    font-size: 14px;
+    color: red;
+}
+
+.wx-slash {
+    font-size: 14px;
+    color: black;
+}
+
+.wx-low {
+    font-size: 14px;
+    color: blue;
+}
+
+.wx-temp {
+    font-size: 28px;
+    color: black;
+    margin-left: 15%;
+    font-family: 'Roboto', sans-serif;
+    margin-top: -15px;
+}

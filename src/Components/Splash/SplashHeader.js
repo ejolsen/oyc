@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import headerLogo from '../../images/oyc_logo_red.svg';
 import LoginButton from './LoginButton';
+import WeatherIcon from '../Weather/WeatherIcon';
 
 
 class SplashHeader extends Component {
@@ -15,6 +16,7 @@ class SplashHeader extends Component {
   render() {
     return (
         <header className="splash-header-1">
+            
             <div>
                 <Link to='/'>
                     <img src={headerLogo} className='splash-logo' alt="club logo" />
@@ -22,7 +24,13 @@ class SplashHeader extends Component {
             </div>
 
             <div className='header-title'>{this.props.component_title}</div>
-            
+
+            { this.props.component_title === undefined 
+                ? 
+                <WeatherIcon/>
+                :
+                null
+            }
 
             <div className='splash-links'>
                 <Link to='/about'>

@@ -10,16 +10,18 @@ require('dotenv').config();
 const app = express();
 app.use(express.static(__dirname+'/../build'))
 const {
-  SERVER_PORT,
-  SESSION_SECRET,
-  CONNECTION_STRING,
-  DOMAIN,
-  CLIENT_ID,
-  CLIENT_SECRET,
-  CALLBACK_URL,
-  ADMIN_EMAIL,
-  ADMIN_EMAIL_PASS,
+    SERVER_PORT,
+    SESSION_SECRET,
+    CONNECTION_STRING,
+    DOMAIN,
+    CLIENT_ID,
+    CLIENT_SECRET,
+    CALLBACK_URL,
+    ADMIN_EMAIL,
+    ADMIN_EMAIL_PASS,
+    STRIPE_SECRET
 } = process.env;
+const stripe = require('stripe')(STRIPE_SECRET);
 
 // _______________________________________________________________________________________
 
@@ -143,6 +145,10 @@ app.get('/auth/me', function(req,res) {
         res.status(401).send('ATTENTION: Unauthorized User');
     }
 });
+app.get('/auth/logout', (req, res) => { 
+    req.logOut();
+    res.redirect(`${process.env.FRONTEND_DOMAIN}`);
+});
 
 // ___ENDPOINTS______________________________________________________
 
@@ -151,17 +157,39 @@ app.get('/api/member_list', ctrl.get_all_users);
 app.get('/api/member_profile/:id', ctrl.get_member_profile);
 app.get('/api/member_profile_info/:id', ctrl.get_member_profile_info);
 app.get('/api/docs', ctrl.get_all_docs);
-app.delete('/api/delete_doc/:id', ctrl.delete_doc);
 app.get('/api/applications', ctrl.get_all_applications);
+app.get('/api/user_photo/:id', ctrl.get_user_photo);
 app.post('/api/create_profile', ctrl.create_profile);
 app.post('/api/submit_application', ctrl.submit_application);
+app.post('/api/application_status/:id', ctrl.update_app_status);
 app.post('/api/post/docs', ctrl.post_document);
+app.put(`/api/post/picture/:id`, ctrl.post_picture);
 app.put('/api/edit_profile/:id', ctrl.edit_profile);
-app.get('/auth/logout', (req, res) => {
-    req.logOut();
-    res.redirect(`${process.env.FRONTEND_DOMAIN}`);
-});
+app.put('/api/payment_update/:id', ctrl.update_payment);
+app.delete('/api/delete_doc/:id', ctrl.delete_doc);
 app.delete('/api/delete_user', ctrl.delete_user);
+app.post('/api/payment', (req, res) => {
+    const {amount, token:{id}} = req.body
+    console.log(id)
+    stripe.charges.create(
+        {
+            amount: amount,
+            currency: "usd",
+            source: id,
+            description: "OYC Test Charge"
+        },
+        (err, charge) => {
+            if(err) {
+                console.log(err)
+                return res.status(500).send(err)
+            } else {
+                console.log(charge)
+                return res.status(200).send(charge)
+            }
+        }
+    )
+});
+
 
 // ___PORT_&_DB_CONNECTION____________________________________________________
 

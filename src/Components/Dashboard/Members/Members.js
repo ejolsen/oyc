@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import DashHeader from '../Header/DashHeader';
 import MemberCard from './MemberCard';
-import ProfileFooter from '../Profile/ProfileFooter';
 import './members.css';
 
 class Members extends Component {
@@ -10,10 +9,8 @@ class Members extends Component {
     super();
 
     this.state = {
-
       filteredUsers: '',
       users: []
-
     };
   };
 
@@ -33,6 +30,7 @@ class Members extends Component {
       })
     })
   }
+  
 
   handleChange(userSearch){
     this.setState({
@@ -41,6 +39,7 @@ class Members extends Component {
   };
   
   render() {
+    console.log(this.state)
 
     let filteredUsers = this.state.users.filter( (user, i) => {
       let cased = user.display_name.toUpperCase()
@@ -57,20 +56,11 @@ class Members extends Component {
       <div>
         <DashHeader component_title='CLUB MEMBERS'/>
         <div className='members-page'>
-
-          
-
           <div className='member-input-title'>
             <input className='member-input' placeholder='Search Members' onChange={ (e) => this.handleChange(e.target.value) } type="text"/>
           </div>
-              
           <div className='member-list' >{filteredUsers}</div>
-
-          
-        
-        </div>
-        <ProfileFooter/>
-         
+        </div>        
       </div>
     );
   };

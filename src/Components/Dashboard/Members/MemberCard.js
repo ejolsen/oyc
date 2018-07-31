@@ -1,43 +1,21 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import './memberCard.css';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 
 function MemberCard(props) {
-  const styles = {
-    card: {
-      height: '350px',
-      width: '350px',
-      margin: '40px',
-      marginBottom: '50px'
-    },
-    cardheader: {
-      fontSize: 28,
-      fontFamily: '""'
-    },
-    cardsubtitle: {
-      fontSize: 22,
-      fontFamily: '""'
-    }
-  }
+
   return (
-        
-    <div>      
-      <Link to={`/member/profile/${props.user.id}`}>
-        <Card style={styles.card}>
-          <CardHeader
-            titleStyle={styles.cardheader}
-            title={props.user.display_name}
-          />
-          <CardMedia
-            overlay={<CardTitle titleStyle={styles.cardsubtitle} 
-             title='Club Position'/>}
-          >
-            <img src={props.user.img} alt="" />
-          </CardMedia>
-        </Card>
+    <div className='member-card'>
+      <div className='member-card-title-box'>
+        <div className='member-card-title-title'>{props.user.display_name}</div>
+      </div>
+      <Link className='card-link' to={`/member/profile/${props.user.user_id}`}>
+        <img className='member-card-img' src={props.user.profile_img} alt="profile pic" />
       </Link>
-    </div>     
+      <div className='member-card-info-info'>
+        <div className='member-card-info-info-title'>{props.user.club_position}</div>
+      </div>
+    </div>
   )
 };
 

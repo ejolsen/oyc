@@ -11,7 +11,6 @@ import PDFicon from '../../images/pdf.svg';
 class Membership extends Component {
     constructor(){
         super()
-
         this.state = {
             first_name: '',
             last_name: '',
@@ -127,7 +126,7 @@ class Membership extends Component {
                                     <img src={PDFicon} height='50px' width='50px'/>
                                 </div>
                                 <a href='https://res.cloudinary.com/oycadmin/image/upload/v1532397096/OYC_membership_policy.pdf.pdf' target="_blank" rel="noopener noreferrer">
-                                    <img src='https://res.cloudinary.com/oycadmin/image/upload/c_thumb,w_320,g_face/v1532397096/OYC_membership_policy.png' alt='member_form' />
+                                    <img src='https://res.cloudinary.com/oycadmin/image/upload/c_thumb,w_320,g_face/v1532397096/OYC_membership_policy.pdf.png' alt='member_form' />
                                 </a>
                             </div>
 

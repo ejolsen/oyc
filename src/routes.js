@@ -7,7 +7,6 @@ import MemberProfile from './Components/Dashboard/Members/MemberProfile';
 import Membership from './Components/Membership/Membership';
 import Calendar from './Components/Dashboard/Calendar/Calendar';
 import Settings from './Components/Dashboard/Settings/Settings';
-import Sandbox from './Components/sandbox';
 import Events from './Components/Splash/Events';
 import About from './Components/Splash/About';
 import Admin from './Components/Admin/Admin';
@@ -24,7 +23,6 @@ export default (
     <Route component={Calendar} path='/calendar' />
     <Route component={Settings} path='/settings' />
     <Route component={Admin} path='/admin' />
-    <Route component={Sandbox} path='/sandbox' />
   </Switch>
 );
   

@@ -1,33 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:600');
+@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+
 .member-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 400px;
-    height: 430px;
-    background-color: white;
-    margin: 30px;
-    border-style: solid;
-    border-width: 2.5px;
-    border-color: rgb(29, 82, 142);
-    border-radius: 5px;
-  } 
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 380px;
+  background-color: white;
+  margin: 30px;
+  box-shadow: 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
+  border-radius: 1px;
+} 
   
-  .member-card-img {
-    padding-top: 20px;
-    padding-bottom: 10px;
-    width: 320px;
-    height: 320px;
-    
-  }
+.member-card-title-box {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  background-color: rgb(29, 82, 142);
+  font-family: 'Roboto', sans-serif;
+}
+
+.member-card-title-title {
+  font-size: 22px;
+  margin-left: 5%;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+.card-link {
+  margin-bottom: -3px;
+  border: none;
+  outline: none;
+}
+
+.member-card-img {
+  width: 100%;
+  height: 330px;
+  z-index: 0;
+}
   
-  .member-card-info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(29, 82, 142);
-    width: 320px;
-    height: 60px;
-    font-size: 28px;
-    color:white;
-    font-family: 'Nunito Sans', sans-serif;
-  }
+.member-card-info-info {
+  width: 100%;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.644);
+  margin-top: -50px;
+  z-index: 1;
+  font-family: 'Nunito Sans', sans-serif;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.member-card-info-info-title {
+  font-size: 20px;
+  margin-left: 5%;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}

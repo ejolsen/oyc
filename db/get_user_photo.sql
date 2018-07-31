@@ -1,0 +1,1 @@
+select profile_img from user_profile_info where user_id = $1

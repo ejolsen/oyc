@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^1.4.2",
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "cloudinary": "^1.11.0",
@@ -24,9 +25,11 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
+    "react-stripe-checkout": "^2.6.3",
     "react-weathericons": "^1.0.4",
     "redux": "^4.0.0",
-    "redux-promise-middleware": "^5.1.1"
+    "redux-promise-middleware": "^5.1.1",
+    "stripe": "^6.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -36,7 +39,7 @@
   },
   "main": "server/server_index.js",
   "proxy": {
-    "/api":{
+    "/api": {
       "target": "http://localhost:7000"
     },
     "/auth": {
