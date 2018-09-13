@@ -43,7 +43,5 @@
       "target": "http://localhost:7000"
     }
   },
-  "devDependencies": {
-    "cypress": "^3.0.3"
-  }
+  "devDependencies": {}
 }
