@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-
-
 class SplashFooter extends Component {
   constructor() {
     super();
@@ -32,11 +30,11 @@ class SplashFooter extends Component {
             </div>
 
             <div className='footer-info'>
-                <div>OUTRIGGER YACHT CLUB · 923 BASIN ROAD CAROLINA BEACH, NC 28428 · 910.707.1007</div>
+                <div>OUTRIGGER YACHT CLUB · 1887 Yacht Club Dr, Denver, NC 28037 · oyc.official@gmail.com</div>
             </div>
 
             <div className='footer-copy'>
-                Copyright © 2018 All Rights Reserved · Site By Hypermonk Design
+                <p>{`Copyright © 2018 All Rights Reserved · Site By`}</p><a className='splash-hypermonk-link' href='http://ejolsen.io'>Hypermonk Design</a>
             </div>
         </div>
     </footer>

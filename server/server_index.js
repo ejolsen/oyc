@@ -8,7 +8,6 @@ const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 const app = express();
-app.use(express.static(__dirname+'/../build'))
 const {
     SERVER_PORT,
     SESSION_SECRET,
@@ -22,9 +21,7 @@ const {
     STRIPE_SECRET
 } = process.env;
 const stripe = require('stripe')(STRIPE_SECRET);
-
-// _______________________________________________________________________________________
-
+app.use(express.static(__dirname+'/../build'))
 app.use( bodyParser.json() );
 app.use(session({
   secret: SESSION_SECRET,
@@ -32,7 +29,14 @@ app.use(session({
   saveUninitialized: true
 }));
 
-// _____NODEMAILER________________________________________________________________________
+// ___PORT_&_DB_CONNECTION____________________________________________________
+
+massive(CONNECTION_STRING).then( db => {
+  app.set('db', db)
+  app.listen(SERVER_PORT, () => console.log(`Ship docked on port: ${SERVER_PORT}`))
+});
+
+// ___NODEMAILER________________________________________________________________________
 
 let transport_object = {
     host: 'smtp.gmail.com',
@@ -150,7 +154,7 @@ app.get('/auth/logout', (req, res) => {
     res.redirect(`/${process.env.FRONTEND_DOMAIN}`);
 });
 
-// ___ENDPOINTS______________________________________________________
+// ___ENDPOINTS___________________________________________________________________
 
 app.get('/api/user_profile_info', ctrl.get_user_profile_info);
 app.get('/api/member_list', ctrl.get_all_users);
@@ -188,12 +192,4 @@ app.post('/api/payment', (req, res) => {
             }
         }
     )
-});
-
-
-// ___PORT_&_DB_CONNECTION____________________________________________________
-
-massive(CONNECTION_STRING).then( db => {
-  app.set('db', db)
-  app.listen(SERVER_PORT, () => console.log(`Ship docked on port: ${SERVER_PORT}`))
 });
