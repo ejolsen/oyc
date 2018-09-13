@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:600');
 
-
 /* ---SPLASH COMPONENT BODY---------- */
-
 .splash-body {
   max-width: 100%;
   width: 100%;
@@ -11,7 +9,6 @@
 }
 
 /* ---SPLASH_HEADER---------- */
-
 .splash-header-1 {
   background-color: white;
   display: flex;
@@ -52,47 +49,6 @@
   font-weight: 600;
   letter-spacing: 2px;
 }
-
-/* .adropbtn {
-  background-color: white;
-  color: rgb(29, 82, 142);
-  font-size: 24px;
-  border: none;
-  text-align: center;
-  font-family: 'Nunito Sans', sans-serif;
-  width: 150px;
-  height: 100%;
-  outline: none;
-}
-  
-.adropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  z-index: 1;
-}
-  
-.adropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 18px;
-}
-  
-.adropdown:hover .adropdown-content {
-  display: block;
-  color: rgb(209, 4, 4);
-}
-.adropdown-content a:hover {
-  color: rgb(209, 4, 4)
- }
- 
-.adropdown:hover .adropbtn {
-  color: rgb(209, 4, 4);
-} */
   
 .splash-links {
   display: flex;
@@ -141,7 +97,6 @@
 .login-button:hover {
   background-color:  rgb(145, 3, 3)
 }
-
 
 /* ---CONTENT---------- */
 
@@ -396,13 +351,10 @@ div.title-bar-2 {
   fill: white;
 }
 
-
 .icon {
   padding-left: 12px;
   padding-right: 12px;
 }
-
-
 
 .footer-info {
   text-align: center;
@@ -429,10 +381,6 @@ div.title-bar-2 {
     font-size: 8px
   }
 }
-
-
-
-
 
 .about-body {
   background-color:rgb(233, 235, 238);
@@ -483,4 +431,10 @@ div.title-bar-2 {
   height: 600px;
   width: 45%;
   border: 1px black solid
+}
+
+.splash-hypermonk-link {
+  margin-left: 8px;
+  text-decoration: underline;
+  color: white;
 }

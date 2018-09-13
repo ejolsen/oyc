@@ -16,7 +16,7 @@ function MemberCard(props) {
         <div className='member-card-info-info-title'>{props.user.club_position}</div>
       </div>
     </div>
-  )
+  );
 };
 
 export default MemberCard
